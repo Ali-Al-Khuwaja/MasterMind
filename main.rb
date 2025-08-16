@@ -1,3 +1,5 @@
-require_relative "lib/game"
+# frozen_string_literal: true
 
-start_game()
+require_relative 'lib/game'
+
+start_game
