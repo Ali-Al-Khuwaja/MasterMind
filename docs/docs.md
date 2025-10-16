@@ -8,7 +8,7 @@ Start reading the code for these object by order, it's ruby so it's pretty descr
 
 - character object
 
-  - It has a create name method .
+  - It stores the name.
 
 - colors_module
 
