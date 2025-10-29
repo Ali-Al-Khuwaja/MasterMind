@@ -62,9 +62,6 @@ class CodeBreaker < Character
       index = ask_for_index
       @guess_hash.store(color, index)
     end
+    @guess_hash
   end
 end
-
-# This object will set the name of player and the guessed code
-test = CodeBreaker.new('ali')
-test.guess_code
