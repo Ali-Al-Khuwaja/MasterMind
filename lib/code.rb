@@ -1,7 +1,8 @@
-require_relative 'code_maker/computer_code_maker'
-require_relative 'code_breaker'
+require_relative 'players_logic/code_makers/computer_code_maker'
+require_relative 'players_logic/code_breakers/code_breaker'
 require 'pry-byebug'
 
+# This class is responsible for comparing CodeBreaker's guess and CodeMaker's secret code.
 class Code
   def initialize
     binding.pry
@@ -10,6 +11,7 @@ class Code
   end
 
   def play
+    binding.pry
     code = @code_maker.make_secret_code
     player_guess = @code_breaker.guess_code
     compare(code, player_guess)
