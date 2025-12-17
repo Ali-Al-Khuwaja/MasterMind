@@ -19,14 +19,17 @@ Start reading the code for these object by order, it's ruby so it's pretty descr
   - The object that is responsible for making a secret code .
 
 - code_breaker object
-  - Edit me
+  - This is a class responsible for managing the code breaker role
 
 ---
 
-- code object
+- compare object
 
   - compare method.
   - exposing the secret code when the breaker fails to guess
+
+- feedback object
+
   - give feedback for each color guessed
 
 - score object

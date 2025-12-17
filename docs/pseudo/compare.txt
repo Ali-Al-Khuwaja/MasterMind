@@ -1,0 +1,28 @@
+METHOD initialize()
+    code_breaker = CodeBreaker.new
+    code_maker = ComputerCodeMaker.new
+END
+
+METHOD play()
+    secret_code = code_maker.make_secret_code
+    player_guess = code_breaker.guess_code
+    compare(secret_code, player_guess)
+END
+
+METHOD compare(secret_code , player_guess)
+    feedback = []
+    FOR EACH index IN player_guess DO
+        IF player_guess[index] == secret_code[index] THEN
+            feedback.push('black') 
+        ELSE IF player_guess[index] != secret_code[index] THEN
+            IF secret_code.any?(player_guess[index]) THEN
+                feedback.push('white')
+            ELSE
+                feedback.push('empty')
+            END
+        END
+    END
+END 
+
+
+
