@@ -7,7 +7,7 @@ require 'pry-byebug'
 # This class is responsible for comparing CodeBreaker's guess and CodeMaker's secret code.
 #
 # it will give feedback on each trail.
-class Code
+class Compare
   def initialize
     @code_breaker = CodeBreaker.new
     @code_maker = ComputerCodeMaker.new
@@ -48,9 +48,14 @@ class Code
       end
     end
     p feedback
+    feedback
   end
 end
 
 # DEBUG : Uncomment test to execute this script
-# test = Code.new
+# test = Compare.new
 # test.play
+# output example:
+# player's guess and feedback:
+# {red: 0, green: 1, blue: 2, yellow: 3}
+# ["white", "white", "black", "white"]
