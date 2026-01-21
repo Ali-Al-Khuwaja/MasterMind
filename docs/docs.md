@@ -19,23 +19,27 @@ Start reading the code for these object by order, it's ruby so it's pretty descr
   - The object that is responsible for making a secret code .
 
 - code_breaker object
-  - This is a class responsible for managing the code breaker role
 
----
+  - This is a class responsible for managing the code breaker role
 
 - compare object
 
   - compare method.
-  - exposing the secret code when the breaker fails to guess
 
-- feedback object
+- feedback object (already done in compare object, this can be just a method , merge?,nope, refactor)
 
   - give feedback for each color guessed
 
 - score object
 
-  - make a add_point method
-  - store points
+  - play_round
+  - increase_maker_score()
+  - increase_breaker_score()
+
+- trials object
+  - make the game repeat for 10 times
+
+---
 
 - game object
 
@@ -47,5 +51,5 @@ Start reading the code for these object by order, it's ruby so it's pretty descr
 - main object
   - start game method
   - stop game method
-  - pick difficulty
+  - pick difficulty?
   - pick players
