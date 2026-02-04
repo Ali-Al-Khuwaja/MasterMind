@@ -1,0 +1,26 @@
+
+IMPORT  Compare;
+CLASS Score
+    METHOD initialize()
+        code_breaker_score = 0
+        code_maker_score = 0
+        trail_number = 1
+    END
+
+    METHOD play_round()
+        feedback = Compare.new
+        add_score(feedback)
+    END
+
+    METHOD add_score(feedback)
+        IF feedback.any?("white") THEN
+            code_maker_score = code_maker_score + 1
+            trail_number = trail_number + 1
+            play_round()
+        ELSE IF trail_number == 10 THEN
+            code_maker_score = code_maker_score + 11
+        ELSE
+            code_breaker_score = code_breaker_score + 5     
+        END    
+    END
+END
