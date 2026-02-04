@@ -53,3 +53,7 @@ Start reading the code for these object by order, it's ruby so it's pretty descr
   - stop game method
   - pick difficulty?
   - pick players
+
+---
+
+The game will not have a ui, instead the game will prompt the user with options available .
