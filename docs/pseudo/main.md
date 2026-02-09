@@ -35,7 +35,7 @@ CLASS Main
         answer = get.input
     END
 
-    METHOD roles_menu_actions
+    METHOD roles_menu_actions(answer)
         IF answer IS valid
             IF answer IS "1"
                 human_vs_human
