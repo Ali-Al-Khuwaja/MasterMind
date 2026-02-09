@@ -5,7 +5,7 @@ require_relative 'lib/game'
 # The main class, it works as the coordinator
 class Main
   def initialize
-    game = Game.new
+    @game = Game.new
     start_menu
   end
 
@@ -42,35 +42,33 @@ class Main
     validate(answer, type_of_menu)
   end
 
-  # def roles_menu_actions
-  #   if answer == 1
-  #     human_vs_human
-  #   elsif answer == 2
-  #     human_vs_computer
-  #   end
-  # end
+  def roles_menu_actions(answer)
+    if answer == 1
+      @game.human_vs_human
+    elsif answer == 2
+      @game.human_vs_computer
+    end
+  end
 
-  # def difficulty_menu
-  #   type_of_menu = 'difficulty'
-  #   puts 'Choose the difficulty of your game'
-  #   sleep 0.4
-  #   puts '1. Easy mode'
-  #   puts '2. Hard mode'
-  #   answer = gets.chomp.to_i
-  #   validate(answer, type_of_menu)
-  # end
+  def difficulty_menu
+    type_of_menu = 'difficulty'
+    puts 'Choose the difficulty of your game'
+    sleep 0.4
+    puts '1. Easy mode'
+    puts '2. Hard mode'
+    answer = gets.chomp.to_i
+    validate(answer, type_of_menu)
+  end
 
-  # def difficulty_menu_actions(answer)
-  #   if answer == 1
-  #     easy_mode
-  #   elsif answer == 2
-  #     hard_mode
-  #   end
-  # end
+  def difficulty_menu_actions(answer)
+    if answer == 1
+      easy_mode
+    elsif answer == 2
+      hard_mode
+    end
+  end
 
   def validate(answer, type_of_menu)
-    raise ArgumentError, 'bad argument, only numbers are accepted' unless !answer.nil? && answer.is_a?(Integer)
-
     until answer.between?(1, 2)
       puts 'Enter a valid answer, pick 1 or 2 from the shown options' unless answer.between?(1, 2)
       answer = gets.chomp.to_i
@@ -78,10 +76,10 @@ class Main
     case type_of_menu
     when 'start'
       start_menu_actions(answer)
-      # when 'roles'
-      #   roles_menu_actions(answer)
-      # when 'difficulty'
-      #   difficulty_menu_actions(answer)
+    when 'roles'
+      roles_menu_actions(answer)
+    when 'difficulty'
+      difficulty_menu_actions(answer)
     end
   end
 end

@@ -8,19 +8,19 @@ class Game
   end
 
   def easy_mode
-    # easy mode logic ...
+    puts "This method hasn't been made yet"
   end
 
   def hard_mode
-    # hard mode logic ...
+    puts "This method hasn't been made yet"
   end
 
   def human_vs_human
-    # method logic ...
+    puts "This method hasn't been made yet"
   end
 
   def human_vs_computer
-    # method logic ...
+    puts "This method hasn't been made yet"
   end
 end
 
