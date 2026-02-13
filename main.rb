@@ -6,6 +6,7 @@ require_relative 'lib/game'
 class Main
   def initialize
     @game = Game.new
+    @roles = nil
     start_menu
   end
 
@@ -21,6 +22,7 @@ class Main
 
   def start_menu_actions(answer)
     if answer == 1
+      puts 'Starting game:'
       roles_menu
     elsif answer == 2
       puts 'Stopping game'
@@ -44,10 +46,11 @@ class Main
 
   def roles_menu_actions(answer)
     if answer == 1
-      @game.human_vs_human
+      @roles = 'human_vs_human'
     elsif answer == 2
-      @game.human_vs_computer
+      @roles = 'human_vs_computer'
     end
+    difficulty_menu
   end
 
   def difficulty_menu
@@ -62,9 +65,9 @@ class Main
 
   def difficulty_menu_actions(answer)
     if answer == 1
-      easy_mode
+      @game.easy_mode(@roles)
     elsif answer == 2
-      hard_mode
+      @game.hard_mode(@roles)
     end
   end
 
