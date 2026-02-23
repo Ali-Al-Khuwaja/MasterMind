@@ -15,9 +15,10 @@ class Trials
 
   def play_trial
     @feedback = @comparer.play
+    update_score(@feedback)
   end
 
-  def update
+  def update_score(feedback)
     if feedback.any?('white') && @trail_number < 11
       @score.increase_maker_score(1)
       @trail_number += 1
@@ -28,3 +29,4 @@ class Trials
     end
   end
 end
+# ------------------< why does the game stop after one trial?
