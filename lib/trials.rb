@@ -29,4 +29,3 @@ class Trials
     end
   end
 end
-# ------------------< why does the game stop after one trial?
