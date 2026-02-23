@@ -33,7 +33,6 @@ class Compare
     # binding.pry <-------------------------------------------------
     # TODO : check if this works with HARD MODE
     feedback = []
-    p player_guess
     guess_array = player_guess.keys
 
     guess_array.each_index do |index|
@@ -47,8 +46,9 @@ class Compare
         end
       end
     end
-    p feedback
-    feedback
+    puts "Your choices are : #{guess_array}"
+    puts "Feedback on your choices: #{feedback}"
+    feedback # returned to the caller after comparing and stuff
   end
 end
 
