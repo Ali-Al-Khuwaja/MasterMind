@@ -30,32 +30,25 @@ class Compare
   # Detailed explanation:
   # docs/code/comparing-logic.md
   def compare(secret_code, player_guess) # rubocop:disable Metrics/MethodLength
-    # binding.pry <-------------------------------------------------
     # TODO : check if this works with HARD MODE
     feedback = []
     guess_array = player_guess.keys
 
     guess_array.each_index do |index|
+      # binding.pry
       if guess_array[index] == secret_code[index]
         feedback.push('black')
       elsif guess_array[index] != secret_code[index]
-        if secret_code.any?(guess_array[index])
+        if secret_code.include?(guess_array[index])
           feedback.push('white')
         else
           feedback.push('empty')
         end
       end
     end
+    puts 'Comparison results: '
     puts "Your choices are : #{guess_array}"
     puts "Feedback on your choices: #{feedback}"
     feedback # returned to the caller after comparing and stuff
   end
 end
-
-# DEBUG : Uncomment test to execute this script
-# test = Compare.new
-# test.play
-# output example:
-# player's guess and feedback:
-# {red: 0, green: 1, blue: 2, yellow: 3}
-# ["white", "white", "black", "white"]
