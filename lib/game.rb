@@ -8,7 +8,7 @@ class Game
   end
 
   def start_game
-    puts @trials.play_trial
+    @trials.play_trial until @trials.continue_trials? == false
   end
 
   def easy_mode(roles)

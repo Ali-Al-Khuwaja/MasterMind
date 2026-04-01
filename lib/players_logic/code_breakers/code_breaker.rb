@@ -39,15 +39,15 @@ class CodeBreaker < Character
     # binding.pry
     puts "Pick the #{round + 1} random color from the list below "
     puts ColorsModule.print_colors
-    color = gets.chomp.to_sym
+    color = gets.chomp.to_s
     validate_color(color, round)
   end
 
   def validate_color(color, round)
     # binding.pry
-    if ColorsModule::COLORS_HASH.key?(color) && !@guess_hash.include?(color)
+    if ColorsModule::COLORS_ARRAY.include?(color) && !@guess_hash.include?(color)
       color
-    elsif !ColorsModule::COLORS_HASH.key?(color)
+    elsif !ColorsModule::COLORS_ARRAY.include?(color)
       puts "This color #{color} , is not a color bro"
       ask_for_color(round)
     elsif @guess_hash.include?(color)
