@@ -4,8 +4,9 @@
 # The purpose of the booleans is to track the status, if it's true , then it was used .
 module ColorsModule
   # A class variable, four colors only (for now), you sure ali ?? this os a module , check the duck
-  COLORS_HASH = { red: false, yellow: false, blue: false, green: false } # rubocop:disable Style/MutableConstant
+  # COLORS_HASH = { red: false, yellow: false, blue: false, green: false }
+  COLORS_ARRAY = %w[red yellow blue green].freeze
   def self.print_colors
-    puts ColorsModule::COLORS_HASH.keys
+    puts ColorsModule::COLORS_ARRAY
   end
 end
