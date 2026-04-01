@@ -7,7 +7,7 @@ require 'pry-byebug'
 # This class is responsible for keeping track of trials.
 class Trials
   def initialize
-    @trail_number = 1
+    @trial_number = 1
     @comparer = Compare.new
     @score = Score.new
     @feedback = nil
@@ -19,13 +19,22 @@ class Trials
   end
 
   def update_score(feedback)
-    if feedback.any?('white') && @trail_number < 11
+    if feedback.any?('white') && @trial_number < 11
       @score.increase_maker_score(1)
-      @trail_number += 1
-    elsif @trail_number == 10
-      @score.increase_maker_score(11)
-    else
+      @trial_number += 1
+    elsif @trial_number == 10 # consumed all trials
+      @score.increase_maker_score(1)
+    else # all black pins
       @score.increase_breaker_score(5)
+    end
+  end
+
+  def continue_trials?
+    # binding.pry
+    if @trial_number < 11
+      true
+    elsif @trial_number > 11
+      false
     end
   end
 end
