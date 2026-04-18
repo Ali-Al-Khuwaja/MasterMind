@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 require_relative 'lib/game'
+require 'pry-byebug'
 
 # The main class, it works as the coordinator
 class Main
   def initialize
     @game = Game.new
-    @roles = nil
+    @role = nil
     start_menu
   end
 
   def start_menu
     type_of_menu = 'start'
     puts 'Select an option by number...'
-    sleep 0.4
+    sleep 0.1
     puts '1. Start game'
     puts '2. Stop game'
     answer = gets.chomp.to_i
@@ -36,38 +37,21 @@ class Main
 
   def roles_menu
     type_of_menu = 'roles'
-    puts 'Choose the type of your opponent for your game'
-    sleep 0.4
-    puts '1. Human vs Human'
-    puts '2. Human vs Computer'
-    answer = gets.chomp.to_i
-    validate(answer, type_of_menu)
+    puts 'Do you want to be the guesser or the maker?'
+    sleep 0.1
+    puts '1. I want to be guesser of secret code'
+    puts '2. I want to be Maker of secret code'
+    role = gets.chomp.to_i
+    validate(role, type_of_menu)
   end
 
-  def roles_menu_actions(answer)
-    if answer == 1
-      @roles = 'human_vs_human'
-    elsif answer == 2
-      @roles = 'human_vs_computer'
-    end
-    difficulty_menu
-  end
-
-  def difficulty_menu
-    type_of_menu = 'difficulty'
-    puts 'Choose the difficulty of your game'
-    sleep 0.4
-    puts '1. Easy mode'
-    puts '2. Hard mode'
-    answer = gets.chomp.to_i
-    validate(answer, type_of_menu)
-  end
-
-  def difficulty_menu_actions(answer)
-    if answer == 1
-      @game.easy_mode(@roles)
-    elsif answer == 2
-      @game.hard_mode(@roles)
+  def roles_menu_actions(role)
+    if role == 1
+      @role = 'guesser' # Human is code breaker, computer is code maker
+      @game.human_guessing
+    elsif role == 2
+      @role = 'maker' # Human is code maker, computer is code maker
+      @game.human_making
     end
   end
 
@@ -81,10 +65,7 @@ class Main
       start_menu_actions(answer)
     when 'roles'
       roles_menu_actions(answer)
-    when 'difficulty'
-      difficulty_menu_actions(answer)
     end
   end
 end
-
 test = Main.new

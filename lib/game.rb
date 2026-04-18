@@ -4,33 +4,24 @@ require 'pry-byebug'
 # This object is responsible for switching between difficulties and player types
 class Game
   def initialize
-    @trials = Trials.new
+    @trials = nil
   end
+
+  def human_guessing
+    # computer is the code maker, human is code breaker
+    @trials = Trials.new('human_guessing')
+    start_game
+  end
+
+  def human_making
+    # human is the code maker, computer is code breaker
+    @trials = Trials.new('computer_guessing')
+    start_game
+  end
+
+  private
 
   def start_game
     @trials.play_trial until @trials.continue_trials? == false
-  end
-
-  def easy_mode(roles)
-    if roles == 'human_vs_human'
-      human_vs_human
-    elsif roles == 'human_vs_computer'
-      human_vs_computer
-    end
-    # start_game
-  end
-
-  def hard_mode(role)
-    puts 'Hard mode has not been made yet'
-    # start_game
-  end
-
-  def human_vs_human
-    puts "human vs human method hasn't been made yet"
-  end
-
-  def human_vs_computer
-    puts 'There is currently one game mode in the game and it is this one, so I will start normally'
-    start_game
   end
 end

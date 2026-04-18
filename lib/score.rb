@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 require 'pry-byebug'
+
 # This class is responsible for adding score points to a winning player.
-#
-# #add_point method
-#
-# #store points
 class Score
   def initialize
     @code_breaker_score = 0
@@ -23,7 +20,7 @@ class Score
   end
 
   def show_score(who)
-    binding.pry
+    # binding.pry
     if who == 'maker'
       puts "code_maker's score :#{@code_maker_score}"
     elsif who == 'breaker'
