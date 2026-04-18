@@ -6,6 +6,10 @@ require_relative '../../colors_module'
 class ComputerCodeMaker
   include ColorsModule
 
+  attr_reader :name
+
+  @name = 'Computer code maker bot'
+
   def make_secret_code
     ColorsModule::COLORS_ARRAY.sample(4)
   end
